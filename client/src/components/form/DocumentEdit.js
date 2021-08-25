@@ -10,6 +10,8 @@ export default class EditDocuments extends Component {
     this.onChangeAuthor = this.onChangeAuthor.bind(this);
     this.onChangeYear = this.onChangeYear.bind(this);
     this.onChangeMonth = this.onChangeMonth.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePublisher = this.onChangePublisher.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       user: "",
@@ -18,6 +20,8 @@ export default class EditDocuments extends Component {
       title: "",
       year: "",
       month: "",
+      email: "",
+      publisher: "",
     };
   }
 
@@ -31,6 +35,8 @@ export default class EditDocuments extends Component {
           year: res.data.year,
           month: res.data.month,
           type: res.data.type,
+          email: res.data.email,
+          publisher: res.data.publisher,
         });
       })
       .catch((error) => {
@@ -63,6 +69,16 @@ export default class EditDocuments extends Component {
       title: e.target.value,
     });
   }
+  onChangeEmail(e) {
+    this.setState({
+      email: e.target.value,
+    });
+  }
+  onChangePublisher(e) {
+    this.setState({
+      publisher: e.target.value,
+    });
+  }
   onSubmit(e) {
     console.log("submit");
     e.preventDefault();
@@ -73,6 +89,8 @@ export default class EditDocuments extends Component {
       title: this.state.title,
       year: this.state.year,
       month: this.state.month,
+      email: this.state.email,
+      publisher: this.state.publisher,
     };
     console.log(newDocument);
 
@@ -89,6 +107,8 @@ export default class EditDocuments extends Component {
       title: "",
       year: "",
       month: "",
+      email: "",
+      publisher: "",
     });
   }
   render() {
@@ -133,6 +153,20 @@ export default class EditDocuments extends Component {
               className="form-control"
               value={this.state.month}
               onChange={this.onChangeMonth}
+            />
+            <label>email: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.email}
+              onChange={this.onChangeEmail}
+            />
+            <label>publisher: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.publisher}
+              onChange={this.onChangePublisher}
             />
           </div>
           <div className="form-group">

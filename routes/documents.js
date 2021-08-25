@@ -61,6 +61,7 @@ router.route("/add").post((req, res) => {
   const year = req.body.year;
   const month = req.body.month;
   const email = req.body.email;
+  const publisher = req.body.publisher;
 
   const newDocument = new Document({
     user,
@@ -70,6 +71,7 @@ router.route("/add").post((req, res) => {
     year,
     month,
     email,
+    publisher,
   });
 
   newDocument

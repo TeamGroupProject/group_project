@@ -11,6 +11,7 @@ export default class CreateDocuments extends Component {
     this.onChangeYear = this.onChangeYear.bind(this);
     this.onChangeMonth = this.onChangeMonth.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePublisher = this.onChangePublisher.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       user: "",
@@ -20,6 +21,7 @@ export default class CreateDocuments extends Component {
       year: "",
       month: "",
       email: "",
+      publisher: "",
     };
   }
 
@@ -53,6 +55,11 @@ export default class CreateDocuments extends Component {
       title: e.target.value,
     });
   }
+  onChangePublisher(e) {
+    this.setState({
+      publisher: e.target.value,
+    });
+  }
   onSubmit(e) {
     console.log("submit");
     e.preventDefault();
@@ -64,6 +71,7 @@ export default class CreateDocuments extends Component {
       year: this.state.year,
       month: this.state.month,
       email: this.state.email,
+      publisher: this.state.publisher,
     };
     console.log(newDocument);
 
@@ -77,6 +85,8 @@ export default class CreateDocuments extends Component {
       title: "",
       year: "",
       month: "",
+      email: "",
+      publisher: "",
     });
   }
   render() {
@@ -128,6 +138,13 @@ export default class CreateDocuments extends Component {
               className="form-control"
               value={this.state.email}
               onChange={this.onChangeEmail}
+            />
+            <label>publisher: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.publisher}
+              onChange={this.onChangePublisher}
             />
           </div>
           <div className="form-group">

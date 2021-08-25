@@ -40,10 +40,10 @@ const documentSchema = new Schema(
       type: String,
       trim: true,
     },
-    //   publisher: {
-    //     type: String,
-    //     trim: true,
-    //   },
+    publisher: {
+      type: String,
+      trim: true,
+    },
     //   publisherAddress: {
     //     //address wydawcy(publishera) nie  autora
     //     type: String,
