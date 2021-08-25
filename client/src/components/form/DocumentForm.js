@@ -232,7 +232,7 @@ export default class CreateDocuments extends Component {
       placePublished: this.state.placePublished,
       keywords: this.state.keywords,
       language: this.state.language,
-      numberOfVolumes:  this.state.language,
+      numberOfVolumes:  this.state.numberOfVolumes,
       ISBN: this.state.ISBN,
       URL: this.state.URL,
       alternateTitle: this.state.alternateTitle,
