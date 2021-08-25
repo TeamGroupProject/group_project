@@ -15,7 +15,7 @@ export default class CreateDocuments extends Component {
     this.onChangePublisherAddress = this.onChangePublisherAddress.bind(this);
     this.onChangeVolume = this.onChangeVolume.bind(this);
     this.onChangeDoi = this.onChangeDoi.bind(this);
-    this.onChangeInstitution = this.onChangeInstitution(this);
+    this.onChangeInstitution = this.onChangeInstitution.bind(this);
     this.onChangeOrganization = this.onChangeOrganization.bind(this);
     this.onChangeChapter = this.onChangeChapter.bind(this);
     this.onChangeSchool = this.onChangeSchool.bind(this);
@@ -30,9 +30,8 @@ export default class CreateDocuments extends Component {
     this.onChangeISBN = this.onChangeISBN.bind(this);
     this.onChangeURL = this.onChangeURL.bind(this);
     this.onChangeAlternateTitle = this.onChangeAlternateTitle.bind(this);
-
-
-
+    this.onChangeEdition = this.onChangeEdition.bind(this);
+    this.onChangeEditor = this.onChangeEditor.bind(this);
 
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
@@ -46,6 +45,7 @@ export default class CreateDocuments extends Component {
       publisher: "",
       publisherAddress: "",
       edition: "",
+      editor: "",
       volume: "",
       doi: "",
       institution: "",
@@ -103,7 +103,7 @@ export default class CreateDocuments extends Component {
   }
   onChangePublisherAddress(e) {
     this.setState({
-        publisherAddress: e.target.value,
+      publisherAddress: e.target.value,
     });
   }
   onChangeEdition(e) {
@@ -202,8 +202,6 @@ export default class CreateDocuments extends Component {
     });
   }
 
-
-
   onSubmit(e) {
     console.log("submit");
     e.preventDefault();
@@ -232,7 +230,7 @@ export default class CreateDocuments extends Component {
       placePublished: this.state.placePublished,
       keywords: this.state.keywords,
       language: this.state.language,
-      numberOfVolumes:  this.state.numberOfVolumes,
+      numberOfVolumes: this.state.numberOfVolumes,
       ISBN: this.state.ISBN,
       URL: this.state.URL,
       alternateTitle: this.state.alternateTitle,
@@ -412,63 +410,63 @@ export default class CreateDocuments extends Component {
               type="text"
               className="form-control"
               value={this.state.note}
-              onChange={this.onChangeNote}     
+              onChange={this.onChangeNote}
             />
             <label>Author Address: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.authorAddress}
-              onChange={this.onChangeAuthorAddress}     
+              onChange={this.onChangeAuthorAddress}
             />
             <label>place published: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.placePublished}
-              onChange={this.onChangePlacePublished}     
+              onChange={this.onChangePlacePublished}
             />
             <label>keywords: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.keywords}
-              onChange={this.onChangeKeywords}     
+              onChange={this.onChangeKeywords}
             />
             <label>language: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.language}
-              onChange={this.onChangeLanguage}     
+              onChange={this.onChangeLanguage}
             />
             <label>numberOfVolumes: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.numberOfVolumes}
-              onChange={this.onChangeNumberOfVolumes}     
+              onChange={this.onChangeNumberOfVolumes}
             />
             <label>ISBN: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.ISBN}
-              onChange={this.onChangeISBN}     
+              onChange={this.onChangeISBN}
             />
             <label>URL: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.URL}
-              onChange={this.onChangeURL}     
+              onChange={this.onChangeURL}
             />
             <label>alternate Title: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.alternateTitle}
-              onChange={this.onChangeAlternateTitle}     
+              onChange={this.onChangeAlternateTitle}
             />
           </div>
           <div className="form-group">
@@ -479,4 +477,3 @@ export default class CreateDocuments extends Component {
     );
   }
 }
-

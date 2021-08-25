@@ -22,8 +22,8 @@ export default class EditDocuments extends Component {
     this.onChangeSchool = this.onChangeSchool.bind(this);
     this.onChangeCrossref = this.onChangeCrossref.bind(this);
     this.onChangeSeries = this.onChangeSeries.bind(this);
-    this.onChangeNote = this.onChangeNote.bind(this); 
-    this.onChangeAuthorAddress = this.onChangeAuthor.bind(this); 
+    this.onChangeNote = this.onChangeNote.bind(this);
+    this.onChangeAuthorAddress = this.onChangeAuthor.bind(this);
     this.onChangeKeywords = this.onChangeKeywords.bind(this);
     this.onChangePlacePublished = this.onChangePlacePublished.bind(this);
     this.onChangeLanguage = this.onChangeLanguage.bind(this);
@@ -31,11 +31,7 @@ export default class EditDocuments extends Component {
     this.onChangeISBN = this.onChangeISBN.bind(this);
     this.onChangeURL = this.onChangeURL.bind(this);
     this.onChangeAlternateTitle = this.onChangeAlternateTitle.bind(this);
-    
 
-    
-
-    
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       user: "",
@@ -244,8 +240,6 @@ export default class EditDocuments extends Component {
     });
   }
 
-  
-  
   onSubmit(e) {
     console.log("submit");
     e.preventDefault();
@@ -379,7 +373,7 @@ export default class EditDocuments extends Component {
             <input
               type="text"
               className="form-control"
-              value={this.state.publisher}
+              value={this.state.publisherAddress}
               onChange={this.onChangePublisherAddress}
             />
             <label>volume: </label>
@@ -393,128 +387,127 @@ export default class EditDocuments extends Component {
             <input
               type="text"
               className="form-control"
-              value={this.state.publisher}
-              onChange={this.onChangPublisher}
+              value={this.state.edition}
+              onChange={this.onChangeEdition}
             />
             <label>editor: </label>
             <input
               type="text"
               className="form-control"
-              value={this.state.volume}
-              onChange={this.onChangEditor}
+              value={this.state.editor}
+              onChange={this.onChangeEditor}
             />
             <label>doi: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.doi}
-              onChange={this.onChangDoi} 
+              onChange={this.onChangeDoi}
             />
             <input
               type="text"
               className="form-control"
               value={this.state.institution}
-              onChange={this.onChangInstitution} 
+              onChange={this.onChangeInstitution}
             />
             <label>organization: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.organization}
-              onChange={this.onChangeOrganization} 
+              onChange={this.onChangeOrganization}
             />
             <label>chapter: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.chapter}
-              onChange={this.onChangeChapter} 
+              onChange={this.onChangeChapter}
             />
             <label>school: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.school}
-              onChange={this.onChangeSchool} 
+              onChange={this.onChangeSchool}
             />
             <label>crossref: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.crossref}
-              onChange={this.onChangeCrossref} 
+              onChange={this.onChangeCrossref}
             />
             <label>series: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.series}
-              onChange={this.onChangeSeries} 
+              onChange={this.onChangeSeries}
             />
             <label>note: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.note}
-              onChange={this.onChangeNote} 
+              onChange={this.onChangeNote}
             />
             <label>author Address: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.authorAddress}
-              onChange={this.onChangeAuthorAddress} 
+              onChange={this.onChangeAuthorAddress}
             />
             <label>place published: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.placePublished}
-              onChange={this.onChangePlacePublished} 
+              onChange={this.onChangePlacePublished}
             />
             <label>keywords: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.keywords}
-              onChange={this.onChangeKeywords} 
+              onChange={this.onChangeKeywords}
             />
             <label>language: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.language}
-              onChange={this.onChangeLanguage} 
+              onChange={this.onChangeLanguage}
             />
             <label>numberOfVolumes: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.numberOfVolumes}
-              onChange={this.onChangeNumberOfVolumes} 
+              onChange={this.onChangeNumberOfVolumes}
             />
             <label>ISBN: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.ISBN}
-              onChange={this.onChangeISBN} 
+              onChange={this.onChangeISBN}
             />
             <label>URL: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.URL}
-              onChange={this.onChangeURL} 
+              onChange={this.onChangeURL}
             />
             <label>alternate Title: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.alternateTitle}
-              onChange={this.onChangeAlternateTitle} 
+              onChange={this.onChangeAlternateTitle}
             />
-            
           </div>
           <div className="form-group">
             <input type="submit" value="Add" className="btn btn-primary " />
