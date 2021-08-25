@@ -12,6 +12,28 @@ export default class CreateDocuments extends Component {
     this.onChangeMonth = this.onChangeMonth.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePublisher = this.onChangePublisher.bind(this);
+    this.onChangePublisherAddress = this.onChangePublisherAddress.bind(this);
+    this.onChangeVolume = this.onChangeVolume.bind(this);
+    this.onChangeDoi = this.onChangeDoi.bind(this);
+    this.onChangeInstitution = this.onChangeInstitution(this);
+    this.onChangeOrganization = this.onChangeOrganization.bind(this);
+    this.onChangeChapter = this.onChangeChapter.bind(this);
+    this.onChangeSchool = this.onChangeSchool.bind(this);
+    this.onChangeCrossref = this.onChangeCrossref.bind(this);
+    this.onChangeNote = this.onChangeNote.bind(this);
+    this.onChangeSeries = this.onChangeSeries.bind(this);
+    this.onChangeAuthorAddress = this.onChangeAuthorAddress.bind(this);
+    this.onChangePlacePublished = this.onChangePlacePublished.bind(this);
+    this.onChangeKeywords = this.onChangeKeywords.bind(this);
+    this.onChangeLanguage = this.onChangeLanguage.bind(this);
+    this.onChangeNumberOfVolumes = this.onChangeNumberOfVolumes.bind(this);
+    this.onChangeISBN = this.onChangeISBN.bind(this);
+    this.onChangeURL = this.onChangeURL.bind(this);
+    this.onChangeAlternateTitle = this.onChangeAlternateTitle.bind(this);
+
+
+
+
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       user: "",
@@ -22,6 +44,25 @@ export default class CreateDocuments extends Component {
       month: "",
       email: "",
       publisher: "",
+      publisherAddress: "",
+      edition: "",
+      volume: "",
+      doi: "",
+      institution: "",
+      organization: "",
+      chapter: "",
+      school: "",
+      crossref: "",
+      series: "",
+      note: "",
+      authorAddress: "",
+      placePublished: "",
+      keywords: "",
+      language: "",
+      numberOfVolumes: "",
+      ISBN: "",
+      URL: "",
+      alternateTitle: "",
     };
   }
 
@@ -60,6 +101,109 @@ export default class CreateDocuments extends Component {
       publisher: e.target.value,
     });
   }
+  onChangePublisherAddress(e) {
+    this.setState({
+        publisherAddress: e.target.value,
+    });
+  }
+  onChangeEdition(e) {
+    this.setState({
+      edition: e.target.value,
+    });
+  }
+  onChangeVolume(e) {
+    this.setState({
+      volume: e.target.value,
+    });
+  }
+  onChangeEditor(e) {
+    this.setState({
+      editor: e.target.value,
+    });
+  }
+  onChangeDoi(e) {
+    this.setState({
+      doi: e.target.value,
+    });
+  }
+  onChangeInstitution(e) {
+    this.setState({
+      institution: e.target.value,
+    });
+  }
+  onChangeOrganization(e) {
+    this.setState({
+      organization: e.target.value,
+    });
+  }
+  onChangeChapter(e) {
+    this.setState({
+      chapter: e.target.value,
+    });
+  }
+  onChangeSchool(e) {
+    this.setState({
+      school: e.target.value,
+    });
+  }
+  onChangeCrossref(e) {
+    this.setState({
+      crossref: e.target.value,
+    });
+  }
+  onChangeSeries(e) {
+    this.setState({
+      series: e.target.value,
+    });
+  }
+  onChangeNote(e) {
+    this.setState({
+      note: e.target.value,
+    });
+  }
+  onChangeAuthorAddress(e) {
+    this.setState({
+      authorAddress: e.target.value,
+    });
+  }
+  onChangePlacePublished(e) {
+    this.setState({
+      placePublished: e.target.value,
+    });
+  }
+  onChangeKeywords(e) {
+    this.setState({
+      keywords: e.target.value,
+    });
+  }
+  onChangeLanguage(e) {
+    this.setState({
+      language: e.target.value,
+    });
+  }
+  onChangeNumberOfVolumes(e) {
+    this.setState({
+      numberOfVolumes: e.target.value,
+    });
+  }
+  onChangeISBN(e) {
+    this.setState({
+      ISBN: e.target.value,
+    });
+  }
+  onChangeURL(e) {
+    this.setState({
+      URL: e.target.value,
+    });
+  }
+  onChangeAlternateTitle(e) {
+    this.setState({
+      alternateTitle: e.target.value,
+    });
+  }
+
+
+
   onSubmit(e) {
     console.log("submit");
     e.preventDefault();
@@ -72,6 +216,26 @@ export default class CreateDocuments extends Component {
       month: this.state.month,
       email: this.state.email,
       publisher: this.state.publisher,
+      publisherAddress: this.state.publisherAddress,
+      edition: this.state.edition,
+      volume: this.state.volume,
+      editor: this.state.editor,
+      doi: this.state.doi,
+      institution: this.state.institution,
+      organization: this.state.organization,
+      chapter: this.state.chapter,
+      school: this.state.school,
+      crossref: this.state.crossref,
+      series: this.state.series,
+      note: this.state.note,
+      authorAddress: this.state.authorAddress,
+      placePublished: this.state.placePublished,
+      keywords: this.state.keywords,
+      language: this.state.language,
+      numberOfVolumes:  this.state.language,
+      ISBN: this.state.ISBN,
+      URL: this.state.URL,
+      alternateTitle: this.state.alternateTitle,
     };
     console.log(newDocument);
 
@@ -87,6 +251,26 @@ export default class CreateDocuments extends Component {
       month: "",
       email: "",
       publisher: "",
+      publisherAddress: "",
+      edition: "",
+      volume: "",
+      editor: "",
+      doi: "",
+      institution: "",
+      organization: "",
+      chapter: "",
+      school: "",
+      crossref: "",
+      series: "",
+      note: "",
+      authorAddress: "",
+      placePublished: "",
+      keywords: "",
+      language: "",
+      numberOfVolumes: "",
+      ISBN: "",
+      URL: "",
+      alternateTitle: "",
     });
   }
   render() {
@@ -146,6 +330,146 @@ export default class CreateDocuments extends Component {
               value={this.state.publisher}
               onChange={this.onChangePublisher}
             />
+            <label>publisher adress: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.publisherAddress}
+              onChange={this.onChangePublisherAddress}
+            />
+            <label>edition: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.edition}
+              onChange={this.onChangeEdition}
+            />
+            <label>volume: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.volume}
+              onChange={this.onChangeVolume}
+            />
+            <label>editor: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.editor}
+              onChange={this.onChangeEditor}
+            />
+            <label>doi: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.doi}
+              onChange={this.onChangeDoi}
+            />
+            <label>institution: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.institution}
+              onChange={this.onChangeInstitution}
+            />
+            <label>organization: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.organization}
+              onChange={this.onChangeOrganization}
+            />
+            <label>chapter: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.chapter}
+              onChange={this.onChangeChapter}
+            />
+            <label>school: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.school}
+              onChange={this.onChangeSchool}
+            />
+            <label>crossref: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.crossref}
+              onChange={this.onChangeCrossref}
+            />
+            <label>series: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.series}
+              onChange={this.onChangeSeries}
+            />
+            <label>note: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.note}
+              onChange={this.onChangeNote}     
+            />
+            <label>Author Address: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.authorAddress}
+              onChange={this.onChangeAuthorAddress}     
+            />
+            <label>place published: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.placePublished}
+              onChange={this.onChangePlacePublished}     
+            />
+            <label>keywords: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.keywords}
+              onChange={this.onChangeKeywords}     
+            />
+            <label>language: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.language}
+              onChange={this.onChangeLanguage}     
+            />
+            <label>numberOfVolumes: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.numberOfVolumes}
+              onChange={this.onChangeNumberOfVolumes}     
+            />
+            <label>ISBN: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.ISBN}
+              onChange={this.onChangeISBN}     
+            />
+            <label>URL: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.URL}
+              onChange={this.onChangeURL}     
+            />
+            <label>alternate Title: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.alternateTitle}
+              onChange={this.onChangeAlternateTitle}     
+            />
           </div>
           <div className="form-group">
             <input type="submit" value="Add" className="btn btn-primary " />
@@ -155,3 +479,4 @@ export default class CreateDocuments extends Component {
     );
   }
 }
+

@@ -61,7 +61,28 @@ router.route("/add").post((req, res) => {
   const year = req.body.year;
   const month = req.body.month;
   const email = req.body.email;
-  const publisher = req.body.publisher;
+  const publisherAddress = req.body.publisherAddress;
+  const edition = req.body.edition;
+  const edition = req.body.volume;
+  const editor = req.body.editor;
+  const doi = req.body.doi; 
+  const institution = req.body.institution;
+  const organization = req.body.organization;
+  const chapter = req.body.chapter;
+  const school = req.body.school;
+  const crossref = req.body.crossref;
+  const series = req.body.series;
+  const note = req.body.note;
+  const authorAddress = req.body.authorAddress;
+  const published = req.body.published; 
+  const keywords = req.body.keywords;
+  const language = req.body.language;
+  const numberOfVolumes = req.body.numberOfVolumes;
+  const ISBN = req.body.ISBN;
+  const URL = req.body.URL;
+  const alternateTitle = req.body.alternateTitle;
+
+
 
   const newDocument = new Document({
     user,
@@ -71,7 +92,26 @@ router.route("/add").post((req, res) => {
     year,
     month,
     email,
-    publisher,
+    publisherAddress,
+    edition,
+    volume,
+    editor,
+    doi,
+    institution,
+    organization,
+    chapter,
+    school,
+    crossref,
+    series,
+    note,
+    authorAddress,
+    published,
+    keywords,
+    language,
+    numberOfVolumes,
+    ISBN,
+    URL,
+    alternateTitle,
   });
 
   newDocument
