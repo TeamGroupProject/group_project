@@ -65,8 +65,8 @@ export default class OneDocument extends Component {
   showPlain(e) {
     axios
       .get(
-        "document/showplain/" +
-          this.state.selectedOption.value +
+        "/document/showplain/" +
+          this.state.selectedOptionpt.value +
           "&" +
           e.target.value
       )
