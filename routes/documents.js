@@ -145,10 +145,72 @@ router.route("/upload").post((req, res) => {
         case "TI":
           title = field[1];
           break;
+        case "PY":
+          year = field[1];
+          break;
+        case "PB":
+          publisher = field[1];
+          break;
+        case "ET":
+          edition = field[1];
+          break;
+        case "VL":
+          volume = field[1];
+          break;
+        case "ED":
+          editor = field[1];
+          break;
+        case "DO":
+          doi = field[1];
+          break;
+        case "N1":
+          note = field[1];
+          break;
+        case "AD":
+          authorAddress = field[1];
+          break;  
+        case "CY":
+          placePublished = field[1];
+          break;  
+        case "KW":
+          keywords = field[1];
+          break;  
+        case "LA":
+          language = field[1];
+          break;  
+        case "NV":
+          numberOfVolumes = field[1];
+          break;  
+        case "SN":
+          ISBN = field[1];
+          break;  
+        case "UR":
+          URL = field[1];
+          break;
+        case "J2":
+          alternateTitle = field[1];
+          break;    
+
+                    
       }
     });
   }
 
+  // year, PY
+  // publisher, PB
+  // edition, ET
+  // volume, VL
+  // editor, ED
+  // doi, DO
+  // note, N1
+  // authorAddress, AD
+  // placePublished, CY
+  // keywords, KW
+  // language, LA
+  // numberOfVolumes, NV
+  // ISBN, SN
+  // URL, UR
+  // alternateTitle, J2
   //////////////////////////////bibtex//////////////////////////////////////////////////////////////////
 
   if (fileExtention === "bib") {
@@ -275,10 +337,55 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
             case "author":
               text += `AU - ${data[key]}\n`;
               break;
-
             case "title":
               text += `TI - ${data[key]}\n`;
               break;
+            case "year":
+              text += `PY - ${data[key]}\n`;
+              break;
+            case "publisher":
+              text += `PB - ${data[key]}\n`;
+              break;
+            case "edition":
+              text += `ET - ${data[key]}\n`;
+              break;
+            case "volume":
+              text += `VL - ${data[key]}\n`;
+              break;
+            case "editor":
+              text += `ED - ${data[key]}\n`;
+              break;
+            case "doi":
+              text += `DO - ${data[key]}\n`;
+              break;
+            case "note":
+              text += `N1 - ${data[key]}\n`;
+              break;
+            case "authorAddress":
+              text += `AD - ${data[key]}\n`;
+              break;
+            case "placePublished":
+              text += `CY - ${data[key]}\n`;
+              break;
+            case "keywords":
+              text += `KW - ${data[key]}\n`;
+              break;
+            case "language":
+              text += `LA - ${data[key]}\n`;
+              break;
+            case "numberofVolumes":
+              text += `NV - ${data[key]}\n`;
+              break;
+            case "ISBN":
+              text += `SN - ${data[key]}\n`;
+              break;
+            case "URL":
+              text += `UR - ${data[key]}\n`;
+              break;
+            case "alternateTitle":
+              text += `J2 - ${data[key]}\n`;
+              break;
+              
           }
         });
         text += `ER -`;
@@ -286,6 +393,7 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
         console.log(text);
       }
 
+  
       if (citationstyle === "ENL") {
         Object.keys(data._doc).forEach(function (key) {
           switch (key) {
