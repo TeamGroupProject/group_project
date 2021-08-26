@@ -286,126 +286,126 @@ export default class CreateDocuments extends Component {
               value={this.state.type}
               onChange={this.onChangeType}
             />
-            <label>author: </label>
+            <label>Author: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.author}
               onChange={this.onChangeAuthor}
             />
-            <label>title: </label>
+            <label>Title: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.title}
               onChange={this.onChangeTitle}
             />
-            <label>year: </label>
+            <label>Year: </label>
             <input
               type="number"
               className="form-control"
               value={this.state.year}
               onChange={this.onChangeYear}
             />
-            <label>month: </label>
+            <label>Month: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.month}
               onChange={this.onChangeMonth}
             />
-            <label>email: </label>
+            <label>Email: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.email}
               onChange={this.onChangeEmail}
             />
-            <label>publisher: </label>
+            <label>Publisher: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.publisher}
               onChange={this.onChangePublisher}
             />
-            <label>publisher adress: </label>
+            <label>Publisher Adress: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.publisherAddress}
               onChange={this.onChangePublisherAddress}
             />
-            <label>edition: </label>
+            <label>Edition: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.edition}
               onChange={this.onChangeEdition}
             />
-            <label>volume: </label>
+            <label>Volume: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.volume}
               onChange={this.onChangeVolume}
             />
-            <label>editor: </label>
+            <label>Editor: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.editor}
               onChange={this.onChangeEditor}
             />
-            <label>doi: </label>
+            <label>Doi: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.doi}
               onChange={this.onChangeDoi}
             />
-            <label>institution: </label>
+            <label>Institution: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.institution}
               onChange={this.onChangeInstitution}
             />
-            <label>organization: </label>
+            <label>Organization: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.organization}
               onChange={this.onChangeOrganization}
             />
-            <label>chapter: </label>
+            <label>Chapter: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.chapter}
               onChange={this.onChangeChapter}
             />
-            <label>school: </label>
+            <label>School: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.school}
               onChange={this.onChangeSchool}
             />
-            <label>crossref: </label>
+            <label>Crossref: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.crossref}
               onChange={this.onChangeCrossref}
             />
-            <label>series: </label>
+            <label>Series: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.series}
               onChange={this.onChangeSeries}
             />
-            <label>note: </label>
+            <label>Note: </label>
             <input
               type="text"
               className="form-control"
@@ -419,28 +419,28 @@ export default class CreateDocuments extends Component {
               value={this.state.authorAddress}
               onChange={this.onChangeAuthorAddress}
             />
-            <label>place published: </label>
+            <label>Place Published: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.placePublished}
               onChange={this.onChangePlacePublished}
             />
-            <label>keywords: </label>
+            <label>Keywords: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.keywords}
               onChange={this.onChangeKeywords}
             />
-            <label>language: </label>
+            <label>Language: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.language}
               onChange={this.onChangeLanguage}
             />
-            <label>numberOfVolumes: </label>
+            <label>Number Of Volumes: </label>
             <input
               type="text"
               className="form-control"
@@ -461,7 +461,7 @@ export default class CreateDocuments extends Component {
               value={this.state.URL}
               onChange={this.onChangeURL}
             />
-            <label>alternate Title: </label>
+            <label>Alternate Title: </label>
             <input
               type="text"
               className="form-control"

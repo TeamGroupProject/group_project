@@ -271,9 +271,44 @@ router.route("/upload").post((req, res) => {
         case "title":
           title = field[1];
           break;
+        case "publisher":
+          publisher = field[1];
+          break;
+        case "year":
+          year = field[1];
+          break;
+        case "edition":
+          edition = field[1];
+          break;
+        case "ISBN":
+          ISBN = field[1];
+          break;
+        case "keywords":
+          keywords = field[1];
+          break;
+        case "month":
+          month = field[1];
+          break;
+        case "note":
+          note = field[1];
+          break;
+        case "institution":
+          institution = field[1];
+          break;
+        case "series":
+          series = field[1];
+          break;
+        case "organization":
+          organization = field[1];
+          break;
+        case "volume":
+          volume = field[1];
+          break;
       }
+        
     }
   }
+
 
   /////////////endnote///////////////////////////////////////////////////////////////////////
   if (fileExtention === "enl") {
@@ -294,9 +329,71 @@ router.route("/upload").post((req, res) => {
         case "%T":
           title = field1;
           break;
+        case "%D":
+          year = field1;
+          break;
+        case "%I":
+          publisher = field1;
+          break;
+        case "%7":
+          edition = field1;
+          break;
+        case "%V":
+         volume = field1;
+          break;
+        case "%E":
+          editor = field1;
+          break;
+        case "%R":
+          doi = field1;
+          break;
+        case "%Z":
+          note = field1;
+          break;
+        case "%+":
+          authorAddress = field1;
+          break;
+        case "%C":
+         placePublished = field1;
+          break;
+        case "%K":
+          keywords = field1;
+          break;
+        case "%G":
+          language = field1;
+          break;
+        case "%6":
+          numberOfVolumes = field1;
+          break;
+        case "%@":
+          ISBN = field1;
+          break;
+        case "%U":
+          URL = field1;
+          break;
+        case "%O":
+          alternateTitle = field1;
+          break;
       }
     });
   }
+
+  // title,  %T
+  // year,  %D
+  // publisher,  %I
+  // edition,  %7
+  // volume,  %V
+  // editor,  %E
+  // doi,  %R
+  // note, %Z
+  // authorAddress, %+
+  // placePublished, %C
+  // keywords, %K
+  // language, %G
+  // numberOfVolumes, %6
+  // ISBN, %@
+  // URL, %U
+  // alternateTitle, %O
 
   ///////////////  KONIEC PARSOWANIA  ////////////////////////////////////////////
 
@@ -373,7 +470,7 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
             case "language":
               text += `LA - ${data[key]}\n`;
               break;
-            case "numberofVolumes":
+            case "numberOfVolumes":
               text += `NV - ${data[key]}\n`;
               break;
             case "ISBN":
@@ -385,7 +482,6 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
             case "alternateTitle":
               text += `J2 - ${data[key]}\n`;
               break;
-              
           }
         });
         text += `ER -`;
@@ -403,12 +499,57 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
             case "author":
               text += `%A ${data[key]}\n`;
               break;
-
             case "title":
               text += `%T ${data[key]}\n`;
               break;
+            case "year":
+              text += `%D ${data[key]}\n`;
+              break;
+            case "publisher":
+              text += `%I ${data[key]}\n`;
+              break;
+            case "edition":
+              text += `%7 ${data[key]}\n`;
+              break;
+            case "volume":
+              text += `%V ${data[key]}\n`;
+              break;
+            case "editor":
+              text += `%E ${data[key]}\n`;
+              break;
+            case "doi":
+              text += `%R ${data[key]}\n`;
+              break;
+            case "note":
+              text += `%Z ${data[key]}\n`;
+              break;
+            case "authorAddress":
+              text += `%+ ${data[key]}\n`;
+              break;
+            case "keywords":
+              text += `%K ${data[key]}\n`;
+              break;
+            case "language":
+              text += `%G ${data[key]}\n`;
+              break;
+            case "placePublished":
+              text += `%C ${data[key]}\n`;
+              break;
+            case "numberOfVolumes":
+              text += `%6 ${data[key]}\n`;
+              break;
+            case "ISBN":
+              text += `%@ ${data[key]}\n`;
+              break;
+            case "URL":
+              text += `%U ${data[key]}\n`;
+              break;
+            case "alternateTitle":
+              text += `%O ${data[key]}\n`;
+              break;
           }
         });
+
         name = `file.enl`;
         console.log(text);
       }
@@ -422,10 +563,43 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
             case "author":
               text += `author = "${data[key]}",\n`;
               break;
-
             case "title":
               text += `title = "${data[key]}",\n`;
               break;
+            case "publisher":
+              text += `publisher = "${data[key]}",\n`;
+              break;
+            case "year":
+              text += `year = "${data[key]}",\n`;
+              break;
+            case "edition":
+              text += `edition = "${data[key]}",\n`;
+              break;
+            case "ISBN":
+              text += `isbn = "${data[key]}",\n`;
+              break;
+            case "keywords":
+              text += `key = "${data[key]}",\n`;
+              break;
+            case "month":
+              text += `month = "${data[key]}",\n`;
+              break;
+            case "note":
+              text += `note = "${data[key]}",\n`;
+              break;
+            case "institution":
+              text += `institution = "${data[key]}",\n`;
+              break;
+            case "series":
+              text += `series = "${data[key]}",\n`;
+              break;
+            case "organization":
+              text += `organization = "${data[key]}",\n`;
+              break;
+            case "volume":
+              text += `volume = "${data[key]}",\n`;
+              break;
+                              
           }
         });
         text = text.slice(0, -2);

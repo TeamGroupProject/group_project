@@ -23,7 +23,7 @@ export default class EditDocuments extends Component {
     this.onChangeCrossref = this.onChangeCrossref.bind(this);
     this.onChangeSeries = this.onChangeSeries.bind(this);
     this.onChangeNote = this.onChangeNote.bind(this);
-    this.onChangeAuthorAddress = this.onChangeAuthor.bind(this);
+    this.onChangeAuthorAddress = this.onChangeAuthorAddress.bind(this);
     this.onChangeKeywords = this.onChangeKeywords.bind(this);
     this.onChangePlacePublished = this.onChangePlacePublished.bind(this);
     this.onChangeLanguage = this.onChangeLanguage.bind(this);
@@ -31,6 +31,7 @@ export default class EditDocuments extends Component {
     this.onChangeISBN = this.onChangeISBN.bind(this);
     this.onChangeURL = this.onChangeURL.bind(this);
     this.onChangeAlternateTitle = this.onChangeAlternateTitle.bind(this);
+    this.onChangeDoi = this.onChangeDoi.bind(this);
 
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
@@ -161,82 +162,82 @@ export default class EditDocuments extends Component {
   }
   onChangeDoi(e) {
     this.setState({
-      doi: e.target.e.value,
+      doi: e.target.value,
     });
   }
   onChangeInstitution(e) {
     this.setState({
-      institution: e.target.e.value,
+      institution: e.target.value,
     });
   }
   onChangeOrganization(e) {
     this.setState({
-      organization: e.target.e.value,
+      organization: e.target.value,
     });
   }
   onChangeChapter(e) {
     this.setState({
-      chapter: e.target.e.value,
+      chapter: e.target.value,
     });
   }
   onChangeSchool(e) {
     this.setState({
-      school: e.target.e.value,
+      school: e.target.value,
     });
   }
   onChangeCrossref(e) {
     this.setState({
-      crossref: e.target.e.value,
+      crossref: e.target.value,
     });
   }
   onChangeSeries(e) {
     this.setState({
-      series: e.target.e.value,
+      series: e.target.value,
     });
   }
   onChangeNote(e) {
     this.setState({
-      note: e.target.e.value,
+      note: e.target.value,
     });
   }
   onChangeAuthorAddress(e) {
     this.setState({
-      authorAddress: e.target.e.value,
+      authorAddress: e.target.value,
     });
   }
   onChangePlacePublished(e) {
     this.setState({
-      placePublished: e.target.e.value,
+      placePublished: e.target.value,
     });
   }
   onChangeKeywords(e) {
     this.setState({
-      keywords: e.target.e.value,
+      keywords: e.target.value,
     });
   }
   onChangeLanguage(e) {
     this.setState({
-      language: e.target.e.value,
+      language: e.target.value,
     });
   }
   onChangeNumberOfVolumes(e) {
     this.setState({
-      numberOfVolumes: e.target.e.value,
+      numberOfVolumes: e.target.value,
     });
   }
   onChangeISBN(e) {
     this.setState({
-      ISBN: e.target.e.value,
+      ISBN: e.target.value,
     });
   }
   onChangeURL(e) {
     this.setState({
-      URL: e.target.e.value,
+      URL: e.target.value,
     });
   }
   onChangeAlternateTitle(e) {
     this.setState({
-      alternateTitle: e.target.e.value,
+      alternateTitle: e.target.value,
     });
   }
 
@@ -327,160 +328,161 @@ export default class EditDocuments extends Component {
               value={this.state.type}
               onChange={this.onChangeType}
             />
-            <label>author: </label>
+            <label>Author: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.author}
               onChange={this.onChangeAuthor}
             />
-            <label>title: </label>
+            <label>Title: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.title}
               onChange={this.onChangeTitle}
             />
-            <label>year: </label>
+            <label>Year: </label>
             <input
               type="number"
               className="form-control"
               value={this.state.year}
               onChange={this.onChangeYear}
             />
-            <label>month: </label>
+            <label>Month: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.month}
               onChange={this.onChangeMonth}
             />
-            <label>email: </label>
+            <label>Email: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.email}
               onChange={this.onChangeEmail}
             />
-            <label>publisher: </label>
+            <label>Publisher: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.publisher}
               onChange={this.onChangePublisher}
             />
-            <label>publisher address: </label>
+            <label>Publisher Address: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.publisherAddress}
               onChange={this.onChangePublisherAddress}
             />
-            <label>volume: </label>
+            <label>Volume: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.volume}
               onChange={this.onChangVolume}
             />
-            <label>edition: </label>
+            <label>Edition: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.edition}
               onChange={this.onChangeEdition}
             />
-            <label>editor: </label>
+            <label>Editor: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.editor}
               onChange={this.onChangeEditor}
             />
-            <label>doi: </label>
+            <label>Doi: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.doi}
               onChange={this.onChangeDoi}
             />
+            <label>Institution: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.institution}
               onChange={this.onChangeInstitution}
             />
-            <label>organization: </label>
+            <label>Organization: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.organization}
               onChange={this.onChangeOrganization}
             />
-            <label>chapter: </label>
+            <label>Chapter: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.chapter}
               onChange={this.onChangeChapter}
             />
-            <label>school: </label>
+            <label>School: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.school}
               onChange={this.onChangeSchool}
             />
-            <label>crossref: </label>
+            <label>Crossref: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.crossref}
               onChange={this.onChangeCrossref}
             />
-            <label>series: </label>
+            <label>Series: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.series}
               onChange={this.onChangeSeries}
             />
-            <label>note: </label>
+            <label>Note: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.note}
               onChange={this.onChangeNote}
             />
-            <label>author Address: </label>
+            <label>Author Address: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.authorAddress}
               onChange={this.onChangeAuthorAddress}
             />
-            <label>place published: </label>
+            <label>Place Published: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.placePublished}
               onChange={this.onChangePlacePublished}
             />
-            <label>keywords: </label>
+            <label>Keywords: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.keywords}
               onChange={this.onChangeKeywords}
             />
-            <label>language: </label>
+            <label>Language: </label>
             <input
               type="text"
               className="form-control"
               value={this.state.language}
               onChange={this.onChangeLanguage}
             />
-            <label>numberOfVolumes: </label>
+            <label>Number Of Volumes: </label>
             <input
               type="text"
               className="form-control"
@@ -501,7 +503,7 @@ export default class EditDocuments extends Component {
               value={this.state.URL}
               onChange={this.onChangeURL}
             />
-            <label>alternate Title: </label>
+            <label>Alternate Title: </label>
             <input
               type="text"
               className="form-control"
