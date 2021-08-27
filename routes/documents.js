@@ -125,10 +125,10 @@ router.route("/upload").post((req, res) => {
   const fileName = req.body.fileName;
   const fileContent = req.body.fileContent;
   let type, author, title;
-
+  let newDocument = new Document({});
   //const file = e.target.files[0]; chyba nie bedzie potrzebne szczegoly do ogarniecia gdy bedzie zrobione
   const fileExtention = fileName.split(".").pop();
-
+  newDocument.user = user;
   /////////////////// RIS ///////////////////////////////////////////
   if (fileExtention == "ris") {
     var lines = fileContent.split("\n");
@@ -137,58 +137,58 @@ router.route("/upload").post((req, res) => {
       console.log(field);
       switch (field[0].trim()) {
         case "TY":
-          type = field[1];
+          newDocument.type = field[1];
           break;
         case "AU":
-          author = field[1];
+          newDocument.author = field[1];
           break;
         case "TI":
-          title = field[1];
+          newDocument.title = field[1];
           break;
         case "PY":
-          year = field[1];
+          newDocument.year = field[1];
           break;
         case "PB":
-          publisher = field[1];
+          newDocument.publisher = field[1];
           break;
         case "ET":
-          edition = field[1];
+          newDocument.edition = field[1];
           break;
         case "VL":
-          volume = field[1];
+          newDocument.volume = field[1];
           break;
         case "ED":
-          editor = field[1];
+          newDocument.editor = field[1];
           break;
         case "DO":
-          doi = field[1];
+          newDocument.doi = field[1];
           break;
         case "N1":
-          note = field[1];
+          newDocument.note = field[1];
           break;
         case "AD":
-          authorAddress = field[1];
+          newDocument.authorAddress = field[1];
           break;
         case "CY":
-          placePublished = field[1];
+          newDocument.placePublished = field[1];
           break;
         case "KW":
-          keywords = field[1];
+          newDocument.keywords = field[1];
           break;
         case "LA":
-          language = field[1];
+          newDocument.language = field[1];
           break;
         case "NV":
-          numberOfVolumes = field[1];
+          newDocument.numberOfVolumes = field[1];
           break;
         case "SN":
-          ISBN = field[1];
+          newDocument.ISBN = field[1];
           break;
         case "UR":
-          URL = field[1];
+          newDocument.URL = field[1];
           break;
         case "J2":
-          alternateTitle = field[1];
+          newDocument.alternateTitle = field[1];
           break;
       }
     });
@@ -216,9 +216,9 @@ router.route("/upload").post((req, res) => {
     lines.pop();
     console.log(lines[0]);
     let field = lines[0].split("{");
-    type = field[0].substring(1, field[0].length);
+    newDocument.type = field[0].substring(1, field[0].length);
 
-    for (line = 1; line < lines.length - 1; line++) {
+    for (line = 1; line < lines.length; line++) {
       let field = lines[line].split("=");
       let correct = false;
 
@@ -265,44 +265,44 @@ router.route("/upload").post((req, res) => {
       console.log(field);
       switch (field[0].trim()) {
         case "author":
-          author = field[1];
+          newDocument.author = field[1];
           break;
         case "title":
-          title = field[1];
+          newDocument.title = field[1];
           break;
         case "publisher":
-          publisher = field[1];
+          newDocument.publisher = field[1];
           break;
         case "year":
-          year = field[1];
+          newDocument.year = field[1];
           break;
         case "edition":
-          edition = field[1];
+          newDocument.edition = field[1];
           break;
         case "ISBN":
           console.log(field[1]);
-          ISBN = field[1];
+          newDocument.ISBN = field[1];
           break;
         case "keywords":
-          keywords = field[1];
+          newDocument.keywords = field[1];
           break;
         case "month":
-          month = field[1];
+          newDocument.month = field[1];
           break;
         case "note":
-          note = field[1];
+          newDocument.note = field[1];
           break;
         case "institution":
-          institution = field[1];
+          newDocument.institution = field[1];
           break;
         case "series":
-          series = field[1];
+          newDocument.series = field[1];
           break;
         case "organization":
-          organization = field[1];
+          newDocument.organization = field[1];
           break;
         case "volume":
-          volume = field[1];
+          newDocument.volume = field[1];
           break;
       }
     }
@@ -319,7 +319,7 @@ router.route("/upload").post((req, res) => {
       console.log(field);
       switch (field0.trim()) {
         case "%0":
-          type = field1;
+          obj.type = field1;
           break;
         case "%A":
           author = field1;
@@ -394,75 +394,75 @@ router.route("/upload").post((req, res) => {
   // alternateTitle, %O
 
   ///////////////  KONIEC PARSOWANIA  ////////////////////////////////////////////
-  let newDocument = new Document({});
-  if (fileExtention === "ris") {
-    const newDocumentTem = new Document({
-      user,
-      type,
-      author,
-      title,
-      year,
-      publisher,
-      edition,
-      volume,
-      editor,
-      doi,
-      note,
-      authorAddress,
-      placePublished,
-      keywords,
-      language,
-      numberOfVolumes,
-      ISBN,
-      URL,
-      alternateTitle,
-    });
-    newDocument = newDocumentTem;
-  }
-  if (fileExtention === "bib") {
-    const newDocumentTem = new Document({
-      user,
-      type,
-      author,
-      title,
-      year,
-      month,
-      publisher,
-      edition,
-      volume,
-      institution,
-      organization,
-      series,
-      note,
-      keywords,
-      ISBN,
-    });
-    newDocument = newDocumentTem;
-  }
-  if (fileExtention === "enl") {
-    const newDocumentTem = new Document({
-      user,
-      type,
-      author,
-      title,
-      year,
-      publisher,
-      edition,
-      volume,
-      editor,
-      doi,
-      note,
-      authorAddress,
-      placePublished,
-      keywords,
-      language,
-      numberOfVolumes,
-      ISBN,
-      URL,
-      alternateTitle,
-    });
-    newDocument = newDocumentTem;
-  }
+  // let newDocument = new Document({});
+  // if (fileExtention === "ris") {
+  //   const newDocumentTem = new Document({
+  //     user,
+  //     type,
+  //     author,
+  //     title,
+  //     year,
+  //     publisher,
+  //     edition,
+  //     volume,
+  //     editor,
+  //     doi,
+  //     note,
+  //     authorAddress,
+  //     placePublished,
+  //     keywords,
+  //     language,
+  //     numberOfVolumes,
+  //     ISBN,
+  //     URL,
+  //     alternateTitle,
+  //   });
+  //   newDocument = newDocumentTem;
+  // }
+  // if (fileExtention === "bib") {
+  //   const newDocumentTem = new Document({
+  //     user,
+  //     type,
+  //     author,
+  //     title,
+  //     year,
+  //     month,
+  //     publisher,
+  //     edition,
+  //     volume,
+  //     institution,
+  //     organization,
+  //     series,
+  //     note,
+  //     keywords,
+  //     ISBN,
+  //   });
+  //   newDocument = newDocumentTem;
+  // }
+  // if (fileExtention === "enl") {
+  //   const newDocumentTem = new Document({
+  //     user,
+  //     type,
+  //     author,
+  //     title,
+  //     year,
+  //     publisher,
+  //     edition,
+  //     volume,
+  //     editor,
+  //     doi,
+  //     note,
+  //     authorAddress,
+  //     placePublished,
+  //     keywords,
+  //     language,
+  //     numberOfVolumes,
+  //     ISBN,
+  //     URL,
+  //     alternateTitle,
+  //   });
+  //   newDocument = newDocumentTem;
+  // }
 
   console.log(newDocument);
 
