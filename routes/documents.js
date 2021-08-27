@@ -168,30 +168,28 @@ router.route("/upload").post((req, res) => {
           break;
         case "AD":
           authorAddress = field[1];
-          break;  
+          break;
         case "CY":
           placePublished = field[1];
-          break;  
+          break;
         case "KW":
           keywords = field[1];
-          break;  
+          break;
         case "LA":
           language = field[1];
-          break;  
+          break;
         case "NV":
           numberOfVolumes = field[1];
-          break;  
+          break;
         case "SN":
           ISBN = field[1];
-          break;  
+          break;
         case "UR":
           URL = field[1];
           break;
         case "J2":
           alternateTitle = field[1];
-          break;    
-
-                    
+          break;
       }
     });
   }
@@ -214,8 +212,9 @@ router.route("/upload").post((req, res) => {
   //////////////////////////////bibtex//////////////////////////////////////////////////////////////////
 
   if (fileExtention === "bib") {
-    var lines = fileContent.split("\r\n");
+    var lines = fileContent.split("\n");
     lines.pop();
+    console.log(lines[0]);
     let field = lines[0].split("{");
     type = field[0].substring(1, field[0].length);
 
@@ -281,6 +280,7 @@ router.route("/upload").post((req, res) => {
           edition = field[1];
           break;
         case "ISBN":
+          console.log(field[1]);
           ISBN = field[1];
           break;
         case "keywords":
@@ -305,10 +305,8 @@ router.route("/upload").post((req, res) => {
           volume = field[1];
           break;
       }
-        
     }
   }
-
 
   /////////////endnote///////////////////////////////////////////////////////////////////////
   if (fileExtention === "enl") {
@@ -339,7 +337,7 @@ router.route("/upload").post((req, res) => {
           edition = field1;
           break;
         case "%V":
-         volume = field1;
+          volume = field1;
           break;
         case "%E":
           editor = field1;
@@ -354,7 +352,7 @@ router.route("/upload").post((req, res) => {
           authorAddress = field1;
           break;
         case "%C":
-         placePublished = field1;
+          placePublished = field1;
           break;
         case "%K":
           keywords = field1;
@@ -396,8 +394,75 @@ router.route("/upload").post((req, res) => {
   // alternateTitle, %O
 
   ///////////////  KONIEC PARSOWANIA  ////////////////////////////////////////////
-
-  const newDocument = new Document({ user, type, author, title });
+  let newDocument = new Document({});
+  if (fileExtention === "ris") {
+    const newDocumentTem = new Document({
+      user,
+      type,
+      author,
+      title,
+      year,
+      publisher,
+      edition,
+      volume,
+      editor,
+      doi,
+      note,
+      authorAddress,
+      placePublished,
+      keywords,
+      language,
+      numberOfVolumes,
+      ISBN,
+      URL,
+      alternateTitle,
+    });
+    newDocument = newDocumentTem;
+  }
+  if (fileExtention === "bib") {
+    const newDocumentTem = new Document({
+      user,
+      type,
+      author,
+      title,
+      year,
+      month,
+      publisher,
+      edition,
+      volume,
+      institution,
+      organization,
+      series,
+      note,
+      keywords,
+      ISBN,
+    });
+    newDocument = newDocumentTem;
+  }
+  if (fileExtention === "enl") {
+    const newDocumentTem = new Document({
+      user,
+      type,
+      author,
+      title,
+      year,
+      publisher,
+      edition,
+      volume,
+      editor,
+      doi,
+      note,
+      authorAddress,
+      placePublished,
+      keywords,
+      language,
+      numberOfVolumes,
+      ISBN,
+      URL,
+      alternateTitle,
+    });
+    newDocument = newDocumentTem;
+  }
 
   console.log(newDocument);
 
@@ -489,7 +554,6 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
         console.log(text);
       }
 
-  
       if (citationstyle === "ENL") {
         Object.keys(data._doc).forEach(function (key) {
           switch (key) {
@@ -576,10 +640,10 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
               text += `edition = "${data[key]}",\n`;
               break;
             case "ISBN":
-              text += `isbn = "${data[key]}",\n`;
+              text += `ISBN = "${data[key]}",\n`;
               break;
             case "keywords":
-              text += `key = "${data[key]}",\n`;
+              text += `keywords = "${data[key]}",\n`;
               break;
             case "month":
               text += `month = "${data[key]}",\n`;
@@ -599,7 +663,6 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
             case "volume":
               text += `volume = "${data[key]}",\n`;
               break;
-                              
           }
         });
         text = text.slice(0, -2);
