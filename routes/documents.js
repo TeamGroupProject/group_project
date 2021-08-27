@@ -677,7 +677,7 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
   });
 });
 
-router.route("/showplain/:selectedoption&:id").delete((req, res, next) => {
+router.route("/showplain/:selectedoption&:id").get((req, res, next) => {
   const documentid = req.params.id;
   const plaintextstyle = req.params.selectedoption;
   Document.findById(documentid, (error, data) => {
@@ -685,7 +685,21 @@ router.route("/showplain/:selectedoption&:id").delete((req, res, next) => {
       return next(error);
     } else {
       let text = ``;
-      if (plaintextstyle === "IEEE") res.send(text);
+      authors = data.author.split(" ");
+      i1 = authors[0][0];
+      if (plaintextstyle === "IEEE") {
+        text = `${i1}.${authors[1]},${data.title ? data.title : ""},${
+          data.edition
+        }. ${data.publisherAddress}:${data.publisher}, ${data.year}`;
+      }
+      if (plaintextstyle === "APA") {
+        text = `${authors[1]},${i1},(${data.year}).${data.title}.${data.publisher}  `;
+      }
+      if (plaintextstyle === "CMOS") {
+        `${authors[1]}  ${data.title ? data.title : ""}  ${
+          data.organization
+        }  ${data.year}  ${data.doi}  `;
+      }
     }
   });
 });
