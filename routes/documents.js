@@ -688,18 +688,25 @@ router.route("/showplain/:selectedoption&:id").get((req, res, next) => {
       authors = data.author.split(" ");
       i1 = authors[0][0];
       if (plaintextstyle === "IEEE") {
-        text = `${i1}.${authors[1]},${data.title ? data.title : ""},${
-          data.edition
-        }. ${data.publisherAddress}:${data.publisher}, ${data.year}`;
+        text = `${i1}.${authors[1] ? authors[1] : "Braknazwiska"},${
+          data.title ? data.title : ""
+        },${data.edition ? data.edition : ""}. ${
+          data.publisherAddress ? data.publisherAddress : ""
+        }:${data.publisher ? data.publisher : ""}, ${
+          data.year ? data.year : ""
+        }`;
       }
       if (plaintextstyle === "APA") {
-        text = `${authors[1]},${i1},(${data.year}).${data.title}.${data.publisher}  `;
+        text = `${authors[1]},${i1},(${data.year}).${data.title}.${
+          data.publisher ? data.publisher : ""
+        }  `;
       }
       if (plaintextstyle === "CMOS") {
-        `${authors[1]}  ${data.title ? data.title : ""}  ${
-          data.organization
-        }  ${data.year}  ${data.doi}  `;
+        text = `${authors[1]}  ${data.title ? data.title : ""}  ${
+          data.organization ? data.organization : ""
+        }  ${data.year}  ${data.doi ? data.doi : ""}  `;
       }
+      res.send(text);
     }
   });
 });

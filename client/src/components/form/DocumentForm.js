@@ -39,7 +39,7 @@ export default class CreateDocuments extends Component {
       type: "",
       author: "",
       title: "",
-      year: "",
+      year: 0,
       month: "",
       email: "",
       publisher: "",
@@ -236,40 +236,58 @@ export default class CreateDocuments extends Component {
       alternateTitle: this.state.alternateTitle,
     };
     console.log(newDocument);
-
-    axios
-      .post("document/add", newDocument)
-      .then((res) => console.log(res.data), window.location.assign("/list"));
-    this.setState({
-      user: "",
-      type: "",
-      author: "",
-      title: "",
-      year: "",
-      month: "",
-      email: "",
-      publisher: "",
-      publisherAddress: "",
-      edition: "",
-      volume: "",
-      editor: "",
-      doi: "",
-      institution: "",
-      organization: "",
-      chapter: "",
-      school: "",
-      crossref: "",
-      series: "",
-      note: "",
-      authorAddress: "",
-      placePublished: "",
-      keywords: "",
-      language: "",
-      numberOfVolumes: "",
-      ISBN: "",
-      URL: "",
-      alternateTitle: "",
-    });
+    let tym = true;
+    if (this.state.type === "") {
+      tym = false;
+      document.getElementById("errorType").style.display = "block";
+    }
+    if (this.state.author === "") {
+      tym = false;
+      document.getElementById("errorAuthor").style.display = "block";
+    }
+    if (this.state.year === 0) {
+      tym = false;
+      document.getElementById("errorYear").style.display = "block";
+    }
+    if (this.state.title === "") {
+      tym = false;
+      document.getElementById("errorTitle").style.display = "block";
+    }
+    if (tym === true) {
+      axios
+        .post("document/add", newDocument)
+        .then((res) => console.log(res.data), window.location.assign("/list"));
+      this.setState({
+        user: "",
+        type: "",
+        author: "",
+        title: "",
+        year: 0,
+        month: "",
+        email: "",
+        publisher: "",
+        publisherAddress: "",
+        edition: "",
+        volume: "",
+        editor: "",
+        doi: "",
+        institution: "",
+        organization: "",
+        chapter: "",
+        school: "",
+        crossref: "",
+        series: "",
+        note: "",
+        authorAddress: "",
+        placePublished: "",
+        keywords: "",
+        language: "",
+        numberOfVolumes: "",
+        ISBN: "",
+        URL: "",
+        alternateTitle: "",
+      });
+    }
   }
   render() {
     const user = jwt_decode(localStorage.jwtToken);
@@ -286,6 +304,13 @@ export default class CreateDocuments extends Component {
               value={this.state.type}
               onChange={this.onChangeType}
             />
+            <span
+              id="errorType"
+              className="red-text"
+              style={{ display: "none" }}
+            >
+              Wypełnij to pole!
+            </span>
             <label>Author: </label>
             <input
               type="text"
@@ -293,6 +318,13 @@ export default class CreateDocuments extends Component {
               value={this.state.author}
               onChange={this.onChangeAuthor}
             />
+            <span
+              id="errorAuthor"
+              className="red-text"
+              style={{ display: "none" }}
+            >
+              Wypełnij to pole!
+            </span>
             <label>Title: </label>
             <input
               type="text"
@@ -300,6 +332,13 @@ export default class CreateDocuments extends Component {
               value={this.state.title}
               onChange={this.onChangeTitle}
             />
+            <span
+              id="errorTitle"
+              className="red-text"
+              style={{ display: "none" }}
+            >
+              Wypełnij to pole!
+            </span>
             <label>Year: </label>
             <input
               type="number"
@@ -307,6 +346,13 @@ export default class CreateDocuments extends Component {
               value={this.state.year}
               onChange={this.onChangeYear}
             />
+            <span
+              id="errorYear"
+              className="red-text"
+              style={{ display: "none" }}
+            >
+              Wypełnij to pole!
+            </span>
             <label>Month: </label>
             <input
               type="text"

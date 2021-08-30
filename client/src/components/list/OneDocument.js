@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import download from "downloadjs";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 // import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 
 export default class OneDocument extends Component {
@@ -39,6 +40,7 @@ export default class OneDocument extends Component {
       isLoading: false,
       isRtl: false,
       isSearchable: true,
+      copied: false,
     };
   }
 
@@ -296,6 +298,21 @@ export default class OneDocument extends Component {
               </div>
             </div>
           </form>
+          <button
+            style={{
+              padding: 0,
+              border: 0,
+              float: "left",
+            }}
+            onClick={() => {
+              navigator.clipboard.writeText(
+                document.getElementById("textarea1").value
+              );
+            }}
+            className="btn btn-large waves-effect waves-light hoverable accent-3"
+          >
+            <i class="material-icons dp48">content_copy</i>
+          </button>
         </div>
       </div>
     );
