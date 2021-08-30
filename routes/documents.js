@@ -319,58 +319,58 @@ router.route("/upload").post((req, res) => {
       console.log(field);
       switch (field0.trim()) {
         case "%0":
-          obj.type = field1;
+          newDocument.obj.type = field1;
           break;
         case "%A":
-          author = field1;
+          newDocument.author = field1;
           break;
         case "%T":
-          title = field1;
+          newDocument.title = field1;
           break;
         case "%D":
-          year = field1;
+          newDocument.year = field1;
           break;
         case "%I":
-          publisher = field1;
+          newDocument.publisher = field1;
           break;
         case "%7":
-          edition = field1;
+          newDocument.edition = field1;
           break;
         case "%V":
-          volume = field1;
+          newDocument.volume = field1;
           break;
         case "%E":
-          editor = field1;
+          newDocument.editor = field1;
           break;
         case "%R":
-          doi = field1;
+          newDocument.doi = field1;
           break;
         case "%Z":
-          note = field1;
+          newDocument.note = field1;
           break;
         case "%+":
-          authorAddress = field1;
+          newDocument.authorAddress = field1;
           break;
         case "%C":
-          placePublished = field1;
+          newDocument.placePublished = field1;
           break;
         case "%K":
-          keywords = field1;
+          newDocument.keywords = field1;
           break;
         case "%G":
-          language = field1;
+          newDocument.language = field1;
           break;
         case "%6":
-          numberOfVolumes = field1;
+          newDocument.numberOfVolumes = field1;
           break;
         case "%@":
-          ISBN = field1;
+          newDocument.ISBN = field1;
           break;
         case "%U":
-          URL = field1;
+          newDocument.URL = field1;
           break;
         case "%O":
-          alternateTitle = field1;
+          newDocument.alternateTitle = field1;
           break;
       }
     });
