@@ -23,18 +23,6 @@ class Dashboard extends Component {
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
             </h4>
-            <button
-              style={{
-                width: "200px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                margin: "1rem",
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
             <Link
               to="/document"
               style={{
@@ -42,10 +30,11 @@ class Dashboard extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 margin: "1rem",
+                color: "black",
               }}
-              className="btn btn-large waves-effect waves-light hoverable red accent-3"
+              className="btn btn-large waves-effect waves-light hoverable blue"
             >
-              ADD DOCUMENT
+              <b>ADD DOCUMENT</b>
             </Link>
             <Link
               to="/upload"
@@ -54,10 +43,11 @@ class Dashboard extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 margin: "1rem",
+                color: "black",
               }}
-              className="btn btn-large waves-effect waves-light hoverable red accent-3"
+              className="btn btn-large waves-effect waves-light hoverable blue darken-1"
             >
-              UPLOAD FILE
+              <b>UPLOAD FILE</b>
             </Link>
             <Link
               to="/list"
@@ -66,12 +56,29 @@ class Dashboard extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 margin: "1rem",
+                color: "black",
+               
               }}
-              className="btn btn-large waves-effect waves-light hoverable red accent-3"
+              className="btn btn-large waves-effect waves-light hoverable  blue darken-2"
             >
-              LIST FILES
+              <b>LIST FILES</b>
             </Link>
           </div>
+          <div className="col s12 center-align">
+          <button
+              style={{
+                width: "200px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                margin: "1rem",
+                color: "black",
+              }}
+              onClick={this.onLogoutClick}
+              className="btn btn-large waves-effect waves-light hoverable red lighten-1"
+            >
+             <b>Logout</b> 
+            </button>
+            </div>
         </div>
       </div>
     );

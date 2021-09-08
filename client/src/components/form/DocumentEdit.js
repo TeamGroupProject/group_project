@@ -316,8 +316,12 @@ export default class EditDocuments extends Component {
   render() {
     const user = jwt_decode(localStorage.jwtToken);
     return (
-      <div>
-        <h3>Create Document</h3>
+      <div className="container">
+      <div style={{ marginTop: "4rem" }} className="row">
+      <div className="col s6 offset-s3">
+      <div className="col s12 offset-s3" style={{ paddingLeft: "11.250px" }}>
+        <h3><b>Edit Document</b></h3>
+      </div>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <input type="hidden" id="user" name="user" value={user.id}></input>
@@ -511,11 +515,25 @@ export default class EditDocuments extends Component {
               onChange={this.onChangeAlternateTitle}
             />
           </div>
-          <div className="form-group">
-            <input type="submit" value="Add" className="btn btn-primary " />
+          <div className="col s8 offset-s4" style={{ paddingLeft: "11.250px" }}>
+              <button
+                  style={{
+                    width: "150px",
+                    borderRadius: "8px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem",
+                  }}
+                  type="submit"
+                  className="btn btn-large waves-effect waves-light hoverable green darken-1"
+                >
+                  Edit
+              </button>
           </div>
         </form>
+        </div>
       </div>
+    </div>
+  
     );
   }
 }

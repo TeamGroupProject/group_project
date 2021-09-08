@@ -48,17 +48,35 @@ export default class FileUpload extends Component {
   render() {
     const user = jwt_decode(localStorage.jwtToken);
     return (
-      <div>
-        <h3>Upload File</h3>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <input type="hidden" id="user" name="user" value={user.id}></input>
-            <input type="file" onChange={this.onChangeFile}></input>
+      <div className="container">
+        <div style={{ marginTop: "4rem" }} className="row">
+          <div className="col s6 offset-s3">
+            <div className="col s12 offset-s3" style={{ paddingLeft: "11.250px" }}>
+              <h3><b>Upload File</b></h3>
+            </div>
+
+            <form onSubmit={this.onSubmit}>
+              <div className="input-field col s12 offset-s3">
+                <input type="hidden" id="user" name="user" value={user.id}></input>
+                <input type="file" onChange={this.onChangeFile}></input>
+              </div>
+              <div className="col s8 offset-s3" style={{ paddingLeft: "11.250px" }}>
+                  <button
+                       style={{
+                         width: "230px",
+                         borderRadius: "8px",
+                         letterSpacing: "1.5px",
+                         marginTop: "1rem",
+                         }}
+                    type="submit"
+                    className="btn btn-large waves-effect waves-light hoverable green darken-4"
+                    >
+                      Upload
+                  </button>
+                  </div>
+            </form>
           </div>
-          <div className="form-group">
-            <input type="submit" value="Upload" className="btn btn-primary " />
-          </div>
-        </form>
+        </div>
       </div>
     );
   }

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default class CreateDocuments extends Component {
   constructor(props) {
@@ -292,8 +295,12 @@ export default class CreateDocuments extends Component {
   render() {
     const user = jwt_decode(localStorage.jwtToken);
     return (
-      <div>
-        <h3>Create Document</h3>
+      <div className="container">
+        <div style={{ marginTop: "4rem" }} className="row">
+        <div className="col s6 offset-s3">
+        <div className="col s12 offset-s1" style={{ paddingLeft: "11.250px" }}>
+        <h3> <b>Create New Document</b></h3>
+        </div>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <input type="hidden" id="user" name="user" value={user.id}></input>
@@ -515,11 +522,24 @@ export default class CreateDocuments extends Component {
               onChange={this.onChangeAlternateTitle}
             />
           </div>
-          <div className="form-group">
-            <input type="submit" value="Add" className="btn btn-primary " />
+          <div className="col s8 offset-s4" style={{ paddingLeft: "11.250px" }}>
+              <button
+                  style={{
+                    width: "150px",
+                    borderRadius: "8px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem",
+                  }}
+                  type="submit"
+                  className="btn btn-large waves-effect waves-light hoverable green darken-1"
+                >
+                  Add
+              </button>
           </div>
         </form>
+        </div>
       </div>
+    </div>
     );
   }
 }
