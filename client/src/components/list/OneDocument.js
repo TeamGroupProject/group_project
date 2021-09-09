@@ -159,17 +159,29 @@ export default class OneDocument extends Component {
         <table>
           <thead>
             <tr>
-              <th>author</th>
-              <th>type</th>
-              <th>title</th>
+              <th>Author</th>
+              <th>Type</th>
+              <th>Title</th>
             </tr>
           </thead>
           <tbody>
             <tr key={this.props.match.params.id}>
-              <td>{this.state.author}</td>
-              <td>{this.state.type}</td>
-              <td>{this.state.title}</td>
+              <td><b><i>{this.state.author}</i></b></td>
+              <td><b><i>{this.state.type}</i></b></td>
+              <td><b><i>{this.state.title}</i></b></td>
               <td>
+              <Link
+                  to={"/edit/" + this.props.match.params.id}
+                  style={{
+                    width: "200px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    margin: "1rem",
+                  }}
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                >
+                  EDIT
+                </Link>
                 <button
                   value={this.props.match.params.id}
                   onClick={this.deleteDocument}
@@ -183,18 +195,7 @@ export default class OneDocument extends Component {
                 >
                   DELETE
                 </button>
-                <Link
-                  to={"/edit/" + this.props.match.params.id}
-                  style={{
-                    width: "200px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    margin: "1rem",
-                  }}
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  EDIT
-                </Link>
+
               </td>
               <td>
                 <div
@@ -235,7 +236,7 @@ export default class OneDocument extends Component {
                       letterSpacing: "1.5px",
                       margin: "1rem",
                     }}
-                    className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                    className="btn btn-large waves-effect waves-light hoverable green darken-1"
                   >
                     SHOW PLAIN TEXT
                   </button>
@@ -277,7 +278,7 @@ export default class OneDocument extends Component {
                       letterSpacing: "1.5px",
                       margin: "1rem",
                     }}
-                    className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                    className="btn btn-large waves-effect waves-light hoverable  orange darken-3"
                   >
                     DOWNLOAD
                   </button>
@@ -286,34 +287,42 @@ export default class OneDocument extends Component {
             </tr>
           </tbody>
         </table>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <div class="container">
         <div class="row">
           <form class="col s5">
             <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field col s12 offset-s8">
                 <textarea
                   id="textarea1"
                   class="materialize-textarea"
+                  placeholder="Plain Text Here"
                 ></textarea>
-                <label for="textarea1">Tu sie pojawi plain text :)</label>
+                <button
+                  style={{
+                  padding: 0,
+                  border: 0,
+                  float: "left",
+                  width: "200px",
+                  left: "10rem",
+                  borderRadius: "7px",
+                  }}
+                    onClick={() => {
+                    navigator.clipboard.writeText(
+                    document.getElementById("textarea1").value
+                  );
+                }}
+                  className="waves-effect waves-light btn"
+                >
+                  <i class="material-icons dp48">content_copy</i>
+                </button>
+
               </div>
             </div>
           </form>
-          <button
-            style={{
-              padding: 0,
-              border: 0,
-              float: "left",
-            }}
-            onClick={() => {
-              navigator.clipboard.writeText(
-                document.getElementById("textarea1").value
-              );
-            }}
-            className="btn btn-large waves-effect waves-light hoverable accent-3"
-          >
-            <i class="material-icons dp48">content_copy</i>
-          </button>
+          
         </div>
+      </div>
       </div>
     );
   }
