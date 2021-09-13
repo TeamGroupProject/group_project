@@ -54,7 +54,7 @@ export default class OneDocument extends Component {
       numberOfVolumes: "",
       ISBN: "",
       URL: "",
-      
+      alternateTitle: "",
 
 
       selectedOption: null,
@@ -154,6 +154,7 @@ export default class OneDocument extends Component {
           keywords: res.data.keywords,
           language: res.data.language,
           numberOfVolumes: res.data.numberOfVolumes,
+          alternateTitle: res.data.alternateTitle,
           
           ISBN: res.data.ISBN,
           URL: res.data.URL,
@@ -237,6 +238,7 @@ export default class OneDocument extends Component {
               <tr><b>Number Of Volumes:  </b><i>{this.state.numberOfVolumes}</i></tr>
               <tr><b>ISBN:  </b><i>{this.state.ISBN}</i></tr>
               <tr><b>URL:  </b><i>{this.state.URL}</i></tr>
+              <tr><b>Alternate Title:  </b><i>{this.state.alternateTitle}</i></tr>
               </tr>
           
             </table>
@@ -387,8 +389,8 @@ export default class OneDocument extends Component {
                         <form class="col s12">
                           <div class="row">
                           <div class="input-field col s12" style={{
-                            top: "5rem",
-                            left:"7rem",
+                            top: "1rem",
+                            left:"20rem",
                           }}>
                               <textarea
                                 id="textarea1"
@@ -405,7 +407,7 @@ export default class OneDocument extends Component {
                                 border: 0,
                                 float: "left",
                                 width: "200px",
-                                left: "4rem",
+                                left: "8rem",
                                 borderRadius: "7px",
                                 }}
                                   onClick={() => {

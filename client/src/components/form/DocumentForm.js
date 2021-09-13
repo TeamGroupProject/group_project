@@ -50,10 +50,10 @@ export default class CreateDocuments extends Component {
       edition: "",
       editor: "",
       volume: "",
-      doi: "",
+      doi: 0,
       institution: "",
       organization: "",
-      chapter: "",
+      chapter: 0,
       school: "",
       crossref: "",
       series: "",
@@ -62,7 +62,7 @@ export default class CreateDocuments extends Component {
       placePublished: "",
       keywords: "",
       language: "",
-      numberOfVolumes: "",
+      numberOfVolumes: 0,
       ISBN: "",
       URL: "",
       alternateTitle: "",
@@ -273,10 +273,10 @@ export default class CreateDocuments extends Component {
         edition: "",
         volume: "",
         editor: "",
-        doi: "",
+        doi: 0,
         institution: "",
         organization: "",
-        chapter: "",
+        chapter: 0,
         school: "",
         crossref: "",
         series: "",
@@ -285,7 +285,7 @@ export default class CreateDocuments extends Component {
         placePublished: "",
         keywords: "",
         language: "",
-        numberOfVolumes: "",
+        numberOfVolumes: 0,
         ISBN: "",
         URL: "",
         alternateTitle: "",
@@ -411,7 +411,7 @@ export default class CreateDocuments extends Component {
             />
             <label>Doi: </label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               value={this.state.doi}
               onChange={this.onChangeDoi}
@@ -432,7 +432,7 @@ export default class CreateDocuments extends Component {
             />
             <label>Chapter: </label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               value={this.state.chapter}
               onChange={this.onChangeChapter}
@@ -495,7 +495,7 @@ export default class CreateDocuments extends Component {
             />
             <label>Number Of Volumes: </label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               value={this.state.numberOfVolumes}
               onChange={this.onChangeNumberOfVolumes}
