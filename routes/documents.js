@@ -319,7 +319,7 @@ router.route("/upload").post((req, res) => {
       console.log(field);
       switch (field0.trim()) {
         case "%0":
-          newDocument.obj.type = field1;
+          newDocument.type = field1;
           break;
         case "%A":
           newDocument.author = field1;
@@ -484,69 +484,67 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
 
       let text = ``;
       let name = "";
-      console.log(
-        "TUTAJ TO GOWNO SIE ZACZYNA !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-      );
 
       if (citationstyle === "RIS") {
         Object.keys(data._doc).forEach(function (key) {
           //console.log(key, data[key]);
-
-          switch (key) {
-            case "type":
-              text += `TY - ${data[key]}\n`;
-              break;
-            case "author":
-              text += `AU - ${data[key]}\n`;
-              break;
-            case "title":
-              text += `TI - ${data[key]}\n`;
-              break;
-            case "year":
-              text += `PY - ${data[key]}\n`;
-              break;
-            case "publisher":
-              text += `PB - ${data[key]}\n`;
-              break;
-            case "edition":
-              text += `ET - ${data[key]}\n`;
-              break;
-            case "volume":
-              text += `VL - ${data[key]}\n`;
-              break;
-            case "editor":
-              text += `ED - ${data[key]}\n`;
-              break;
-            case "doi":
-              text += `DO - ${data[key]}\n`;
-              break;
-            case "note":
-              text += `N1 - ${data[key]}\n`;
-              break;
-            case "authorAddress":
-              text += `AD - ${data[key]}\n`;
-              break;
-            case "placePublished":
-              text += `CY - ${data[key]}\n`;
-              break;
-            case "keywords":
-              text += `KW - ${data[key]}\n`;
-              break;
-            case "language":
-              text += `LA - ${data[key]}\n`;
-              break;
-            case "numberOfVolumes":
-              text += `NV - ${data[key]}\n`;
-              break;
-            case "ISBN":
-              text += `SN - ${data[key]}\n`;
-              break;
-            case "URL":
-              text += `UR - ${data[key]}\n`;
-              break;
-            case "alternateTitle":
-              text += `J2 - ${data[key]}\n`;
-              break;
+          if (data[key] !== "" && data[key] !== null) {
+            switch (key) {
+              case "type":
+                text += `TY - ${data[key]}\n`;
+                break;
+              case "author":
+                text += `AU - ${data[key]}\n`;
+                break;
+              case "title":
+                text += `TI - ${data[key]}\n`;
+                break;
+              case "year":
+                text += `PY - ${data[key]}\n`;
+                break;
+              case "publisher":
+                text += `PB - ${data[key]}\n`;
+                break;
+              case "edition":
+                text += `ET - ${data[key]}\n`;
+                break;
+              case "volume":
+                text += `VL - ${data[key]}\n`;
+                break;
+              case "editor":
+                text += `ED - ${data[key]}\n`;
+                break;
+              case "doi":
+                text += `DO - ${data[key]}\n`;
+                break;
+              case "note":
+                text += `N1 - ${data[key]}\n`;
+                break;
+              case "authorAddress":
+                text += `AD - ${data[key]}\n`;
+                break;
+              case "placePublished":
+                text += `CY - ${data[key]}\n`;
+                break;
+              case "keywords":
+                text += `KW - ${data[key]}\n`;
+                break;
+              case "language":
+                text += `LA - ${data[key]}\n`;
+                break;
+              case "numberOfVolumes":
+                text += `NV - ${data[key]}\n`;
+                break;
+              case "ISBN":
+                text += `SN - ${data[key]}\n`;
+                break;
+              case "URL":
+                text += `UR - ${data[key]}\n`;
+                break;
+              case "alternateTitle":
+                text += `J2 - ${data[key]}\n`;
+                break;
+            }
           }
         });
         text += `ER -`;
@@ -556,61 +554,63 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
 
       if (citationstyle === "ENL") {
         Object.keys(data._doc).forEach(function (key) {
-          switch (key) {
-            case "type":
-              text += `%0 ${data[key]}\n`;
-              break;
-            case "author":
-              text += `%A ${data[key]}\n`;
-              break;
-            case "title":
-              text += `%T ${data[key]}\n`;
-              break;
-            case "year":
-              text += `%D ${data[key]}\n`;
-              break;
-            case "publisher":
-              text += `%I ${data[key]}\n`;
-              break;
-            case "edition":
-              text += `%7 ${data[key]}\n`;
-              break;
-            case "volume":
-              text += `%V ${data[key]}\n`;
-              break;
-            case "editor":
-              text += `%E ${data[key]}\n`;
-              break;
-            case "doi":
-              text += `%R ${data[key]}\n`;
-              break;
-            case "note":
-              text += `%Z ${data[key]}\n`;
-              break;
-            case "authorAddress":
-              text += `%+ ${data[key]}\n`;
-              break;
-            case "keywords":
-              text += `%K ${data[key]}\n`;
-              break;
-            case "language":
-              text += `%G ${data[key]}\n`;
-              break;
-            case "placePublished":
-              text += `%C ${data[key]}\n`;
-              break;
-            case "numberOfVolumes":
-              text += `%6 ${data[key]}\n`;
-              break;
-            case "ISBN":
-              text += `%@ ${data[key]}\n`;
-              break;
-            case "URL":
-              text += `%U ${data[key]}\n`;
-              break;
-            case "alternateTitle":
-              text += `%O ${data[key]}\n`;
-              break;
+          if (data[key] !== "" && data[key] !== null) {
+            switch (key) {
+              case "type":
+                text += `%0 ${data[key]}\n`;
+                break;
+              case "author":
+                text += `%A ${data[key]}\n`;
+                break;
+              case "title":
+                text += `%T ${data[key]}\n`;
+                break;
+              case "year":
+                text += `%D ${data[key]}\n`;
+                break;
+              case "publisher":
+                text += `%I ${data[key]}\n`;
+                break;
+              case "edition":
+                text += `%7 ${data[key]}\n`;
+                break;
+              case "volume":
+                text += `%V ${data[key]}\n`;
+                break;
+              case "editor":
+                text += `%E ${data[key]}\n`;
+                break;
+              case "doi":
+                text += `%R ${data[key]}\n`;
+                break;
+              case "note":
+                text += `%Z ${data[key]}\n`;
+                break;
+              case "authorAddress":
+                text += `%+ ${data[key]}\n`;
+                break;
+              case "keywords":
+                text += `%K ${data[key]}\n`;
+                break;
+              case "language":
+                text += `%G ${data[key]}\n`;
+                break;
+              case "placePublished":
+                text += `%C ${data[key]}\n`;
+                break;
+              case "numberOfVolumes":
+                text += `%6 ${data[key]}\n`;
+                break;
+              case "ISBN":
+                text += `%@ ${data[key]}\n`;
+                break;
+              case "URL":
+                text += `%U ${data[key]}\n`;
+                break;
+              case "alternateTitle":
+                text += `%O ${data[key]}\n`;
+                break;
+            }
           }
         });
 
@@ -623,46 +623,48 @@ router.route("/download/:selectedoption&:id").get((req, res, next) => {
           3
         )}_${data._doc.title.substring(0, 3)},\n`;
         Object.keys(data._doc).forEach(function (key) {
-          switch (key) {
-            case "author":
-              text += `author = "${data[key]}",\n`;
-              break;
-            case "title":
-              text += `title = "${data[key]}",\n`;
-              break;
-            case "publisher":
-              text += `publisher = "${data[key]}",\n`;
-              break;
-            case "year":
-              text += `year = "${data[key]}",\n`;
-              break;
-            case "edition":
-              text += `edition = "${data[key]}",\n`;
-              break;
-            case "ISBN":
-              text += `ISBN = "${data[key]}",\n`;
-              break;
-            case "keywords":
-              text += `keywords = "${data[key]}",\n`;
-              break;
-            case "month":
-              text += `month = "${data[key]}",\n`;
-              break;
-            case "note":
-              text += `note = "${data[key]}",\n`;
-              break;
-            case "institution":
-              text += `institution = "${data[key]}",\n`;
-              break;
-            case "series":
-              text += `series = "${data[key]}",\n`;
-              break;
-            case "organization":
-              text += `organization = "${data[key]}",\n`;
-              break;
-            case "volume":
-              text += `volume = "${data[key]}",\n`;
-              break;
+          if (data[key] !== "" && data[key] !== null) {
+            switch (key) {
+              case "author":
+                text += `author = "${data[key]}",\n`;
+                break;
+              case "title":
+                text += `title = "${data[key]}",\n`;
+                break;
+              case "publisher":
+                text += `publisher = "${data[key]}",\n`;
+                break;
+              case "year":
+                text += `year = "${data[key]}",\n`;
+                break;
+              case "edition":
+                text += `edition = "${data[key]}",\n`;
+                break;
+              case "ISBN":
+                text += `ISBN = "${data[key]}",\n`;
+                break;
+              case "keywords":
+                text += `keywords = "${data[key]}",\n`;
+                break;
+              case "month":
+                text += `month = "${data[key]}",\n`;
+                break;
+              case "note":
+                text += `note = "${data[key]}",\n`;
+                break;
+              case "institution":
+                text += `institution = "${data[key]}",\n`;
+                break;
+              case "series":
+                text += `series = "${data[key]}",\n`;
+                break;
+              case "organization":
+                text += `organization = "${data[key]}",\n`;
+                break;
+              case "volume":
+                text += `volume = "${data[key]}",\n`;
+                break;
+            }
           }
         });
         text = text.slice(0, -2);
