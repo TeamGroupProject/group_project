@@ -62,17 +62,17 @@ const documentSchema = new Schema(
       trim: true,
     },
     doi: {
-         //diigtal object identifier pies wie co to ale pewnie wazne
+      //diigtal object identifier pies wie co to ale pewnie wazne
       type: Number,
       trim: true,
     },
-   institution: {
+    institution: {
       //niekoniecznie publisher ale instytucaj ktora pomagala wydac np uniwersytet łodzki
       type: String,
       trim: true,
-   },
+    },
     organization: {
-         //sponsor konefrencji
+      //sponsor konefrencji
       type: String,
       trim: true,
     },
@@ -81,12 +81,12 @@ const documentSchema = new Schema(
       trim: true,
     },
     school: {
-         //szkola gdzie teza byla napisana
+      //szkola gdzie teza byla napisana
       type: String,
       trim: true,
     },
     crossref: {
-         //niekoniecznie publisher ale instytucaj ktora pomagala wydac np uniwersytet łodzki
+      //niekoniecznie publisher ale instytucaj ktora pomagala wydac np uniwersytet łodzki
       type: String,
       trim: true,
     },
@@ -95,12 +95,12 @@ const documentSchema = new Schema(
       trim: true,
     },
     note: {
-         //notka/komentarz/co tam se chcesz
+      //notka/komentarz/co tam se chcesz
       type: String,
       trim: true,
     },
 
-      //tutaj bedzie zaczynało sie to czego nie ma w biptechu a jest w risie
+    //tutaj bedzie zaczynało sie to czego nie ma w biptechu a jest w risie
     authorAddress: {
       type: String,
       trim: true,
@@ -122,7 +122,7 @@ const documentSchema = new Schema(
       trim: true,
     },
     ISBN: {
-         //oraz ISSN cokolwiek to jest
+      //oraz ISSN cokolwiek to jest
       type: String,
       trim: true,
     },
@@ -131,7 +131,7 @@ const documentSchema = new Schema(
       trim: true,
     },
 
-      //endnote
+    //endnote
     alternateTitle: {
       type: String,
       trim: true,
@@ -141,7 +141,7 @@ const documentSchema = new Schema(
     timestamps: true,
   }
 );
-
+var x;
 const Document = mongoose.model("Document", documentSchema);
 
 module.exports = Document;
